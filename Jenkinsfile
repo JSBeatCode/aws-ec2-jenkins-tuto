@@ -3,7 +3,7 @@ pipeline {
     stages {        
         stage('Build') { 
             steps {
-        	    sh 'npm install'
+        	    sh 'cd /var/lib/jenkins/workspace/aws-ec2-jenkins-tuto2 && npm install'
             }
         }
     }
