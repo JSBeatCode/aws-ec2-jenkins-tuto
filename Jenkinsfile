@@ -10,11 +10,10 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                    sh 'npm install'
+            steps {                
                 // npm을 사용하여 종속성을 설치합니다.
                 // sh 'npm install'
-                
+                sh 'npm install'
             }
         }
 
