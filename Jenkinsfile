@@ -10,10 +10,11 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
+                sh 'sudo chmod 777 /home/ubuntu/aws-ec2-jenkins-tuto'
                 // 원하는 디렉토리로 이동
                 dir('/home/ubuntu/aws-ec2-jenkins-tuto') {
                     // npm install 실행
-                    sh 'npm install'
+                    sh 'sudo npm install'
                 }
             }
         }
