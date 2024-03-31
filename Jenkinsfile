@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // 소스코드 체크아웃
-                git 'https://github.com/your/repository.git'
+                git branch: 'main', credentialsId: '5d0209e2-c7bb-498e-b9b5-7ae4a526bf45', url: 'https://github.com/JSBeatCode/aws-ec2-jenkins-tuto.git'
             }
         }
         stage('Install Dependencies') {
