@@ -12,8 +12,8 @@ pipeline {
             steps {
                 // 원하는 디렉토리로 이동하여 sudo로 npm install 실행
                 script {
-                    sh 'who'
-//                    sh 'chmod o+rwx /home/ubuntu/aws-ec2-jenkins-tuto'
+                    // sh 'who'
+                    sh 'chmod o+rwx /home/ubuntu/aws-ec2-jenkins-tuto'
                     // sh 'cd /home/ubuntu/aws-ec2-jenkins-tuto'
                 }
                 
