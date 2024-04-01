@@ -11,12 +11,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // 원하는 디렉토리로 이동하여 sudo로 npm install 실행
-                script {
+                //script {
                     // sh 'who'
-                    sh 'chmod o+rwx /home/ubuntu/aws-ec2-jenkins-tuto'
+                    //sh 'chmod o+rwx /home/ubuntu/aws-ec2-jenkins-tuto'
                     // sh 'cd /home/ubuntu/aws-ec2-jenkins-tuto'
+                //}
+                nodejs(nodeJSInstallationName: 'awc-ec2-jenkins-node') { // 위의 설정에서 지정한 node 이름
+                    sh 'npm install'
                 }
-                
             }
         }
         // 여기에 추가적인 스테이지들을 추가할 수 있음
