@@ -4,13 +4,16 @@ pipeline {
     stages {
         stage('Stop') {
             steps {
-                sh 'pm2 stop index'
+                // nodejs의 nodeJSInstallationName는 Jenkins 관리 > plugin > nodejs 설치 > Jenkins 관리 > Tools > Nodejs 등록시의 name이다.
+                nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') {
+                    sh 'npx pm2 stop index'
+                }                
             }
         }
         stage('Install Dependencies') {
             steps {
                 // nodejs의 nodeJSInstallationName는 Jenkins 관리 > plugin > nodejs 설치 > Jenkins 관리 > Tools > Nodejs 등록시의 name이다.
-                nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') { // 위의 설정에서 지정한 node 이름
+                nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') {
                     sh 'npm install'
                 }
             }
@@ -27,7 +30,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 // nodejs의 nodeJSInstallationName는 Jenkins 관리 > plugin > nodejs 설치 > Jenkins 관리 > Tools > Nodejs 등록시의 name이다.
-                sh 'pm2 reload index'
+                nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') {
+                    sh 'pm2 reload index'
+                }
             }
         }
     }
