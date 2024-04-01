@@ -16,7 +16,7 @@ pipeline {
                     //sh 'chmod o+rwx /home/ubuntu/aws-ec2-jenkins-tuto'
                     // sh 'cd /home/ubuntu/aws-ec2-jenkins-tuto'
                 //}
-                nodejs(nodeJSInstallationName: 'awc-ec2-jenkins-node') { // 위의 설정에서 지정한 node 이름
+                nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') { // 위의 설정에서 지정한 node 이름
                     sh 'npm install'
                 }
             }
