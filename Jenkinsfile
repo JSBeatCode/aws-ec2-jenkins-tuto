@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Install Dependencies') {
+        stage('Stop') {
             steps {
                 sh 'pm2 stop index'
             }
