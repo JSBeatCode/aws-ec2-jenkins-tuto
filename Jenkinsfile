@@ -24,7 +24,8 @@ pipeline {
             steps {
                 // nodejs의 nodeJSInstallationName는 Jenkins 관리 > plugin > nodejs 설치 > Jenkins 관리 > Tools > Nodejs 등록시의 name이다.
                 nodejs(nodeJSInstallationName: 'aws-ec2-jenkins-node') {
-                    sh 'npx pm2 start index.cjs'
+                    // sh 'npx pm2 start index.cjs'
+                    sh 'ls -al'
                 }
             }
         }
