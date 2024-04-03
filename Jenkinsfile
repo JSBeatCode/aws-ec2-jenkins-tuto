@@ -5,7 +5,7 @@ pipeline {
     }
     // Docker Tool로 설정된 이름을 사용하여 Docker 이미지를 실행합니다.
     tools {
-        dockerTool 'awc-ec2-jenkins-docker'
+        dockerTool 'aws-ec2-jenkins-docker'
     }
     stages {        
         stage('Install Dependencies') {
