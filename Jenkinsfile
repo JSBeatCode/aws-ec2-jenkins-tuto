@@ -1,8 +1,9 @@
 pipeline {
     agent any
-    
-    stages {
-        
+    environment {
+        DOCKER_IMAGE = 'node:latest'
+    }
+    stages {        
         stage('Install Dependencies') {
             steps {
                 // nodejs의 nodeJSInstallationName는 Jenkins 관리 > plugin > nodejs 설치 > Jenkins 관리 > Tools > Nodejs 등록시의 name이다.
@@ -29,6 +30,14 @@ pipeline {
                 }
             }
         }
+         stage('Run App') {
+            steps {
+                script {
+                    docker.image("${DOCKER_IMAGE}").inside {
+                        sh 'node -v'
+                    }
+                }
+            }
     }
     // post 옵션을 사용하여 파이프라인 실행 결과를 처리할 수 있음
     post {
