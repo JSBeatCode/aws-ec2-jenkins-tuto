@@ -21,7 +21,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'pm2 list'
+                sh 'pm2 reload index.cjs'
             }
         }
     }
