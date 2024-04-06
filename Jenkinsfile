@@ -2,6 +2,12 @@ pipeline {
     agent any
     
     stages {
+        stage('Init') {
+            steps {
+                sh 'sudo rm -rf node_modules'
+                sh 'sudo rm -f package-lock.json'
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'                
@@ -15,7 +21,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                //sh 'npx pm2 ls'
                 sh 'npm -version'
             }
         }
