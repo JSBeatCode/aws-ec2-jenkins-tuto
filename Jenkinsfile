@@ -28,18 +28,9 @@ pipeline {
                 }
             }
         }
-        stage('docker test') {
-            agent {
-                docker {
-                    image 'node:latest'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely: 
-                    reuseNode true
-                }
-            }
+        stage('test') {
             steps {
-                sh 'npm --v'
+                sh 'pm2 list'
             }
         }
     }
