@@ -2,12 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Init') {
-            steps {
-                sh 'sudo rm -rf node_modules'
-                sh 'sudo rm -f package-lock.json'
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 timeout(time: 5, unit: 'MINUTES', activity: 'abort') {
