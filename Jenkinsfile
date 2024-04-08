@@ -10,13 +10,17 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install --save'
+                timeout(time: 5, unit: 'MINUTES', failBuild: true) {
+                    sh 'npm install --save'
+                }
             }
         }
         // 여기에 추가적인 스테이지들을 추가할 수 있음
         stage('Build') {
             steps {
-                sh 'npm run build'
+                timeout(time: 5, unit: 'MINUTES', failBuild: true) {
+                    sh 'npm run build'
+                }
             }
         }
         stage('Deploy') {
